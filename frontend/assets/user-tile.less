@@ -1,0 +1,46 @@
+@import "_colors";
+
+.user-tile{
+  display: flex;
+  align-items: center;
+  align-self: start;
+  margin-bottom: 8px;
+  line-height: 1.2;
+
+  &--mine{
+    background: @color-gray;
+
+    .dark-mode &{
+      background: @color-gray-darkest;
+    }
+  }
+
+  &--mine &__name{
+    color: @color-cobalt;
+    font-weight: bold;
+
+    .dark-mode &{
+      color: @color-cobalt-light;
+    }
+  }
+
+  &__pic-block{
+    width: 40px;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  &__pic{
+    width: 100%;
+    display: block;
+    border: 1px solid @color-cobalt;
+
+    .dark-mode &{
+      border-color: @color-cobalt-light;
+    }
+  }
+
+  &__info{
+    flex-grow: 1;
+  }
+}

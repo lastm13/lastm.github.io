@@ -1,0 +1,136 @@
+@import "_colors";
+
+.text{
+  font-size: 14px;
+
+  p{
+    margin: 0 0 10px;
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    color: @color-cobalt;
+    font-weight: bold;
+    margin: 0 0 14px;
+
+    .dark-mode &{
+      color: @color-cobalt-hover;
+    }
+  }
+
+  h1{
+    font-size: 24px;
+  }
+
+  h2{
+    font-size: 22px;
+  }
+
+  h3{
+    font-size: 18px;
+  }
+
+
+  table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1500px;
+
+    th, td{
+      border: 1px solid @color-cobalt;
+      padding: 8px 10px;
+      vertical-align: top;
+
+      .dark-mode &{
+        border-color: @color-cobalt-light;
+      }
+    }
+
+    th{
+      background: @color-gray;
+      font-weight: bold;
+
+      .dark-mode &{
+        background: @color-cobalt-dark;
+      }
+    }
+  }
+
+  pre{
+    white-space: pre-wrap;
+    background: @color-gray;
+    border-left: 3px solid @color-cobalt;
+    padding: 8px 10px;
+    margin: 0 0 10px;
+
+    .dark-mode &{
+      background: @color-gray-darker;
+      border-left-color: @color-cobalt-light;
+    }
+  }
+
+  code{
+    background: @color-gray;
+    padding: 2px 4px;
+
+    .dark-mode &{
+      background: @color-gray-darker;
+    }
+  }
+
+  blockquote{
+    color: fade(@color-text, 60%);
+    padding: 10px 10px 10px 20px;
+    margin: 0 0 12px;
+    position: relative;
+    border: 1px solid fade(@color-cobalt, 50%);
+    border-left-width: 3px;
+    background-color: fade(@color-gray, 50%);
+
+    .dark-mode &{
+      border-color: fade(@color-cobalt-light, 50%);
+      background-color: fade(@color-gray-darker, 50%);
+      color: fade(@color-light-text, 60%);
+    }
+
+    &:before{
+      content: open-quote;
+      display: block;
+      font-size: 44px;
+      line-height: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    > p:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol{
+    margin: 0 20px 14px;
+    padding: 0 0 0 1px;
+
+    li{
+      margin-bottom: 3px;
+    }
+  }
+
+  ul ol, ul ul , ol ul, ol ol{
+    margin-bottom: 5px;
+  }
+
+  hr{
+    color: @color-cobalt-hover;
+    border: 1px solid @color-cobalt-hover;
+    margin: 10px 0;
+
+    .dark-mode &{
+      color: @color-cobalt-light;
+      border-color: @color-cobalt-light;
+    }
+  }
+
+}
