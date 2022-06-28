@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  caddy:
+    image: caddy:2.3.0-alpine
+    volumes:
+      - caddy_data:/data
+      - .:/app
+
+  php:
+    build:
+      context: etc/php
+      args:
+        APP_DIR: $DOCKER_PHP_APP_DIR
+        COMPOSER_VERSION: 1.9.2
+    environment:
+        PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
+    volumes:
+      - .:$DOCKER_PHP_APP_DIR
+
+  frontend:
+    image: node:12
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=${FRONTEND_ENV-dev}
+    volumes:
+      - ./:/home/node/app
+    expose: [8081]
+    command: npm run container-start-${FRONTEND_ENV:-dev}
+
+volumes:
+  db_data:
+  caddy_data:
